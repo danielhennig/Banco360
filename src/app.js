@@ -10,7 +10,7 @@ app.use(express.json());
 app.use('/api', routes);
 
 app.get('/', (req, res) => {
-  res.send('API Banco Open Finance rodando!');
+  res.send('🚀 API Banco Open Finance funcionando!');
 });
 
 module.exports = app;
