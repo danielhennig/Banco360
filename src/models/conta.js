@@ -7,7 +7,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         numeroConta: DataTypes.STRING,
         saldo: { type: DataTypes.DECIMAL, defaultValue: 0 },
-        criadoEm: { type: DataTypes.DATE, defaultValue: DataTypes.NOW }
     });
 
     Conta.associate = (models) => {

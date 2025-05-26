@@ -9,7 +9,6 @@ module.exports = {
       usuarioId,
       escopo,
       validoAte,
-      criadoEm: new Date(),
     });
 
     return consentimento;

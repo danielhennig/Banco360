@@ -10,7 +10,7 @@ module.exports = {
         usuarioId: (await queryInterface.rawSelect('Usuarios', {
           where: { cpf: '11111111111' },
         }, ['id'])),
-        criadoEm: new Date(),
+    
       },
     ]);
   },

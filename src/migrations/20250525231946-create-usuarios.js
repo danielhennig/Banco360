@@ -26,11 +26,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      criadoEm: {
-        allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW,
-      },
+    
     });
   },
   async down(queryInterface) {

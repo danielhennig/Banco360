@@ -23,11 +23,7 @@ module.exports = {
         onDelete: 'CASCADE',
         allowNull: false,
       },
-      criadoEm: {
-        allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW,
-      },
+      
     });
   },
   async down(queryInterface) {

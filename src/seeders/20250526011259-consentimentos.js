@@ -12,7 +12,7 @@ module.exports = {
         escopo: 'dados_conta, transacoes, ofertas',
         validoAte: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
         usuarioId: usuarioId,
-        criadoEm: new Date(),
+        
       },
     ]);
   },

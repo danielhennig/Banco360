@@ -18,7 +18,6 @@ module.exports = {
         cpf: '11111111111',
         email: 'joao@gmail.com',
         senha: await bcrypt.hash('123456', 10),
-        criadoEm: new Date(),
       },
     ]);
   },

@@ -5,11 +5,24 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
         },
-        nome: DataTypes.STRING,
-        cpf: { type: DataTypes.STRING, unique: true },
-        email: { type: DataTypes.STRING, unique: true },
-        senha: DataTypes.STRING,
-        criadoEm: { type: DataTypes.DATE, defaultValue: DataTypes.NOW }
+        nome: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        cpf: {
+            type: DataTypes.STRING,
+            unique: true,
+            allowNull: false,
+        },
+        email: {
+            type: DataTypes.STRING,
+            unique: true,
+            allowNull: false,
+        },
+        senha: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        }
     });
 
     Usuario.associate = (models) => {

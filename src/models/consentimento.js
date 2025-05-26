@@ -7,7 +7,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         escopo: DataTypes.STRING,
         validoAte: DataTypes.DATE,
-        criadoEm: { type: DataTypes.DATE, defaultValue: DataTypes.NOW }
     });
 
     Consentimento.associate = (models) => {
