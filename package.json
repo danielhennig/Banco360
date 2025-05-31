@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "nodemon app.js",
     "start": "node app.js",
-    "sequelize": "sequelize"
+    "sequelize": "sequelize",
+    "migrate": "sequelize-cli db:migrate --config src/config/config.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
