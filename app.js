@@ -9,7 +9,11 @@ app.use(express.json());
 
 // Rotas
 const contaRoutes = require('./src/routes/contaRoutes');
+const transacaoRoutes = require('./src/routes/transacaoRoutes');
+const ofertaRoutes = require('./src/routes/ofertaRoutes');
 app.use('/conta', contaRoutes);
+app.use('/transacoes', transacaoRoutes);
+app.use('/ofertas', ofertaRoutes);
 
 app.get('/', (req, res) => {
     res.send('Banco 360 API');

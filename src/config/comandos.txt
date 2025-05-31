@@ -1,1 +1,2 @@
 npx sequelize-cli db:migrate:undo:all --config src/config/config.js
+npm run migrate
