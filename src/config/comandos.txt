@@ -1,2 +1,6 @@
 npx sequelize-cli db:migrate:undo:all --config src/config/config.js
 npm run migrate
+
+
+npm install express sequelize pg pg-hstore bcrypt jsonwebtoken cors dotenv uuid
+npm install --save-dev nodemon sequelize-cli
