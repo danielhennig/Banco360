@@ -15,10 +15,12 @@ const sequelize = new Sequelize(
 const Conta = require('./conta')(sequelize, DataTypes);
 const Transacao = require('./Transacao')(sequelize, DataTypes);
 const Oferta = require('./Oferta')(sequelize, DataTypes);
+const Consentimento = require('./Consentimento')(sequelize, DataTypes);
 
 module.exports = {
   sequelize,
   Conta,
   Transacao,
-  Oferta
+  Oferta,
+  Consentimento
 };
