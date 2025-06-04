@@ -12,14 +12,18 @@ const contaRoutes = require('./src/routes/contaRoutes');
 const transacaoRoutes = require('./src/routes/transacaoRoutes');
 const ofertaRoutes = require('./src/routes/ofertaRoutes');
 const consentimentoRoutes = require('./src/routes/consentimentoRoutes');
+const authRoutes = require('./src/routes/authRoutes');
 
 app.use('/itau/contas', contaRoutes);
 app.use('/itau/transacoes', transacaoRoutes);
 app.use('/itau/ofertas', ofertaRoutes);
 app.use('/itau/consentimentos', consentimentoRoutes);
+app.use('/itau', authRoutes);
+
 app.get('/', (req, res) => {
     res.send('Banco 360 API');
 });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
