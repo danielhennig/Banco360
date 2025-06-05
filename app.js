@@ -14,6 +14,7 @@ const ofertaRoutes = require('./src/routes/ofertaRoutes');
 const consentimentoRoutes = require('./src/routes/consentimentoRoutes');
 const authRoutes = require('./src/routes/authRoutes');
 
+
 app.use('/itau/contas', contaRoutes);
 app.use('/itau/transacoes', transacaoRoutes);
 app.use('/itau/ofertas', ofertaRoutes);
