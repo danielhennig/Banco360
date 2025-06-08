@@ -10,7 +10,7 @@ module.exports = {
                 return res.status(400).json({ erro: 'Dados incompletos' });
             }
 
-            const conta = await Conta.findByPk(numeroConta);
+            const conta = await Conta.findOne({ where: { numeroConta } });
             if (!conta) {
                 return res.status(404).json({ erro: 'Conta não encontrada' });
             }
@@ -40,7 +40,7 @@ module.exports = {
         try {
             const { numeroConta } = req.params;
 
-            const conta = await Conta.findByPk(numeroConta);
+            const conta = await Conta.findOne({ where: { numeroConta } });
             if (!conta) {
                 return res.status(404).json({ erro: 'Conta não encontrada' });
             }
