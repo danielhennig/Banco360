@@ -4,13 +4,13 @@ const { v4: uuidv4 } = require('uuid');
 module.exports = {
     async criarTransacao(req, res) {
         try {
-            const { contaId, tipo, valor } = req.body;
+            const { numeroConta, tipo, valor } = req.body;
 
-            if (!contaId || !tipo || !valor) {
+            if (!numeroConta || !tipo || !valor) {
                 return res.status(400).json({ erro: 'Dados incompletos' });
             }
 
-            const conta = await Conta.findByPk(contaId);
+            const conta = await Conta.findByPk(numeroConta);
             if (!conta) {
                 return res.status(404).json({ erro: 'Conta não encontrada' });
             }
@@ -26,7 +26,7 @@ module.exports = {
             // Criar transação
             const novaTransacao = await Transacao.create({
                 id: uuidv4(),
-                contaId,
+                numeroConta,
                 tipo,
                 valor
             });
@@ -38,15 +38,15 @@ module.exports = {
     },
     async listarTransacoesPorConta(req, res) {
         try {
-            const { contaId } = req.params;
+            const { numeroConta } = req.params;
 
-            const conta = await Conta.findByPk(contaId);
+            const conta = await Conta.findByPk(numeroConta);
             if (!conta) {
                 return res.status(404).json({ erro: 'Conta não encontrada' });
             }
 
             const transacoes = await Transacao.findAll({
-                where: { contaId },
+                where: { numeroConta },
                 order: [['createdAt', 'DESC']]
             });
 

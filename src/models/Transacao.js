@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true
         },
-        contaId: {
+        numeroConta: {
             type: DataTypes.UUID,
             allowNull: false
         },

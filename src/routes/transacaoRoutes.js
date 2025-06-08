@@ -10,14 +10,14 @@ const authMiddleware = require('../middlewares/authMiddleware');
 router.post(
     '/',
     authMiddleware,
-    validarCampos(['contaId', 'tipo', 'valor']),
+    validarCampos(['numeroConta', 'tipo', 'valor']),
     verificarContaExiste,
     transacaoController.criarTransacao
 );
 
 // ✅ Listar transações por conta (extrato)
 router.get(
-    '/:contaId',
+    '/:numeroConta',
     authMiddleware,
     verificarContaExiste,
     transacaoController.listarTransacoesPorConta
