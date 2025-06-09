@@ -12,7 +12,7 @@ const sequelize = new Sequelize(
 );
 
 // Cria os models com sequelize instanciado
-const Conta = require('./conta')(sequelize, DataTypes);
+const Conta = require('./Conta')(sequelize, DataTypes);
 const Transacao = require('./Transacao')(sequelize, DataTypes);
 const Oferta = require('./Oferta')(sequelize, DataTypes);
 const Consentimento = require('./Consentimento')(sequelize, DataTypes);

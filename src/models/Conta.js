@@ -25,7 +25,10 @@ module.exports = (sequelize, DataTypes) => {
     senha: DataTypes.STRING,
     numeroConta: { type: DataTypes.STRING, unique: true },
     saldo: { type: DataTypes.FLOAT, defaultValue: 0 }
-  });
+  },
+    {
+      freezeTableName: true
+    });
 
   return Conta;
 };
