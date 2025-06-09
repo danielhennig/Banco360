@@ -7,6 +7,7 @@ npm install --save-dev nodemon sequelize-cli
 npx sequelize-cli db:migrate:undo:all --config src/config/config.js
 // criar o banco
 npm run migrate
+npx sequelize-cli db:migrate --config src/config/config.js
 
 
 // rodar seeds

@@ -12,11 +12,15 @@ module.exports = {
         type: Sequelize.UUID,
         allowNull: false,
         references: {
-          model: 'Contas',
+          model: 'Conta',
           key: 'id'
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
+      },
+      numeroConta: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
       tipo: {
         type: Sequelize.STRING,
@@ -26,8 +30,16 @@ module.exports = {
         type: Sequelize.FLOAT,
         allowNull: false
       },
-      createdAt: Sequelize.DATE,
-      updatedAt: Sequelize.DATE
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.fn('NOW')
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.fn('NOW')
+      }
     });
   },
 

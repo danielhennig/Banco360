@@ -23,10 +23,11 @@ module.exports = {
             const novoSaldo = tipo === 'deposito' ? conta.saldo + valor : conta.saldo - valor;
             await conta.update({ saldo: novoSaldo });
 
-            // Criar transação
+            // Criar transação com contaId + numeroConta
             const novaTransacao = await Transacao.create({
                 id: uuidv4(),
-                numeroConta,
+                contaId: conta.id,         // FK para manter relacionamento
+                numeroConta: conta.numeroConta, // visível e auditável
                 tipo,
                 valor
             });
@@ -36,6 +37,7 @@ module.exports = {
             return res.status(500).json({ erro: 'Erro na transação', detalhe: error.message });
         }
     },
+
     async listarTransacoesPorConta(req, res) {
         try {
             const { numeroConta } = req.params;
@@ -58,6 +60,4 @@ module.exports = {
             return res.status(500).json({ erro: 'Erro ao listar extrato', detalhe: error.message });
         }
     }
-
-
 };
