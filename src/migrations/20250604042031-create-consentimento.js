@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Consentimentos', {
+    await queryInterface.createTable('Consentimento', {
       id: {
         type: Sequelize.UUID,
         defaultValue: Sequelize.literal('uuid_generate_v4()'),
@@ -30,6 +30,6 @@ module.exports = {
   },
 
   down: async (queryInterface) => {
-    await queryInterface.dropTable('Consentimentos');
+    await queryInterface.dropTable('Consentimento');
   }
 };
