@@ -18,10 +18,15 @@ module.exports = {
             }
 
             const token = jwt.sign(
-                { contaId: conta.id, email: conta.email },
+                {
+                    contaId: conta.id,        // obrigatório para validar consentimento
+                    numeroConta: conta.numeroConta,
+                    email: conta.email
+                },
                 process.env.JWT_SECRET,
                 { expiresIn: '1h' }
             );
+
 
             return res.status(200).json({ token });
         } catch (error) {

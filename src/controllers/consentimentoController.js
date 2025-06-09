@@ -4,11 +4,16 @@ const { v4: uuidv4 } = require('uuid');
 module.exports = {
   async criarConsentimento(req, res) {
     try {
-      const { contaId, escopo, validade } = req.body;
+      const contaId = req.usuario?.contaId; // vem do JWT
+      const { escopo, validade } = req.body;
+
+      if (!contaId) {
+        return res.status(400).json({ erro: 'Conta não autenticada.' });
+      }
 
       const conta = await Conta.findByPk(contaId);
       if (!conta) {
-        return res.status(404).json({ erro: 'Conta não encontrada' });
+        return res.status(404).json({ erro: 'Conta não encontrada.' });
       }
 
       const novoConsentimento = await Consentimento.create({
@@ -26,7 +31,11 @@ module.exports = {
 
   async listarPorConta(req, res) {
     try {
-      const { contaId } = req.params;
+      const contaId = req.usuario?.contaId;
+
+      if (!contaId) {
+        return res.status(400).json({ erro: 'Conta não autenticada.' });
+      }
 
       const consentimentos = await Consentimento.findAll({
         where: { contaId },

@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 const controller = require('../controllers/consentimentoController');
-const verificarContaExiste = require('../middlewares/verificarContaExiste');
 const validarCampos = require('../middlewares/validarCamposObrigatorios');
 const authMiddleware = require('../middlewares/authMiddleware');
 
@@ -10,15 +9,13 @@ const authMiddleware = require('../middlewares/authMiddleware');
 router.post(
   '/',
   authMiddleware,
-  validarCampos(['contaId', 'escopo', 'validade']),
-  verificarContaExiste,
+  validarCampos(['escopo', 'validade']),
   controller.criarConsentimento
 );
 
 router.get(
   '/:contaId',
   authMiddleware,
-  verificarContaExiste,
   controller.listarPorConta
 );
 

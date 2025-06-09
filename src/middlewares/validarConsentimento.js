@@ -1,27 +1,30 @@
 const { Consentimento } = require('../models');
+const { Op } = require('sequelize');
 
 module.exports = async (req, res, next) => {
-  const contaId = req.params.contaId || req.body.contaId;
+  try {
+    const contaId = req.usuario?.contaId;
 
-  if (!contaId) {
-    return res.status(400).json({ erro: 'contaId não fornecido para verificação de consentimento.' });
-  }
-
-  const hoje = new Date();
-
-  const consentimentoAtivo = await Consentimento.findOne({
-    where: {
-      contaId,
-      autorizado: true,
-      validade: {
-        [require('sequelize').Op.gte]: hoje
-      }
+    if (!contaId) {
+      return res.status(400).json({ erro: 'contaId não encontrado no token.' });
     }
-  });
 
-  if (!consentimentoAtivo) {
-    return res.status(403).json({ erro: 'Acesso negado. Consentimento inexistente, expirado ou revogado.' });
+    const consentimento = await Consentimento.findOne({
+      where: {
+        contaId,
+        autorizado: true,
+        validade: {
+          [Op.gt]: new Date()  // verifica se ainda está válido
+        }
+      }
+    });
+
+    if (!consentimento) {
+      return res.status(403).json({ erro: 'Consentimento inexistente, expirado ou revogado.' });
+    }
+
+    next();
+  } catch (error) {
+    return res.status(500).json({ erro: 'Erro interno ao validar consentimento.', detalhe: error.message });
   }
-
-  next();
 };

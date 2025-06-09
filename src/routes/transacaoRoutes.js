@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const transacaoController = require('../controllers/transacaoController');
-const verificarContaExiste = require('../middlewares/verificarContaExiste');
 const validarCampos = require('../middlewares/validarCamposObrigatorios');
+const verificarNumeroContaExiste = require('../middlewares/verificarNumeroContaExiste');
 const authMiddleware = require('../middlewares/authMiddleware');
 
 // ✅ Criar transação (depósito ou saque)
@@ -11,7 +11,7 @@ router.post(
     '/',
     authMiddleware,
     validarCampos(['numeroConta', 'tipo', 'valor']),
-    verificarContaExiste,
+    verificarNumeroContaExiste,
     transacaoController.criarTransacao
 );
 
@@ -19,7 +19,7 @@ router.post(
 router.get(
     '/:numeroConta',
     authMiddleware,
-    verificarContaExiste,
+    verificarNumeroContaExiste,
     transacaoController.listarTransacoesPorConta
 );
 module.exports = router;
