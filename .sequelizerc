@@ -4,5 +4,5 @@ module.exports = {
   'models-path': path.resolve('src', 'models'),
   'seeders-path': path.resolve('src', 'seeders'),
   'migrations-path': path.resolve('src', 'migrations'),
-  'config': path.resolve('src', 'config', 'config.json') // Necessário só para CLI
+  'config': path.resolve('src', 'config', 'config.js') // Necessário só para CLI
 };
