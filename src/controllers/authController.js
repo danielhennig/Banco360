@@ -5,9 +5,9 @@ const jwt = require('jsonwebtoken');
 module.exports = {
     async login(req, res) {
         try {
-            const { email, senha } = req.body;
+            const { numeroConta, senha } = req.body;
 
-            const conta = await Conta.findOne({ where: { email } });
+            const conta = await Conta.findOne({ where: { numeroConta } });
             if (!conta) {
                 return res.status(404).json({ erro: 'Conta não encontrada' });
             }

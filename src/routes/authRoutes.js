@@ -5,7 +5,7 @@ const validarCampos = require('../middlewares/validarCamposObrigatorios');
 
 router.post(
     '/login',
-    validarCampos(['email', 'senha']),
+    validarCampos(['numeroConta', 'senha']),
     authController.login
 );
 
