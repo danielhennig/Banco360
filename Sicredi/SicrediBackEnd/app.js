@@ -15,19 +15,19 @@ const consentimentoRoutes = require('./src/routes/consentimentoRoutes');
 const authRoutes = require('./src/routes/authRoutes');
 const openFinanceRoutes = require('./src/routes/openFinanceRoutes');
 
-app.use('/itau/contas', contaRoutes);
-app.use('/itau/transacoes', transacaoRoutes);
-app.use('/itau/ofertas', ofertaRoutes);
-app.use('/itau/consentimentos', consentimentoRoutes);
-app.use('/itau', authRoutes);
-app.use('/itau/open-finance', openFinanceRoutes);
+app.use('/sicredi/contas', contaRoutes);
+app.use('/sicredi/transacoes', transacaoRoutes);
+app.use('/sicredi/ofertas', ofertaRoutes);
+app.use('/sicredi/consentimentos', consentimentoRoutes);
+app.use('/sicredi', authRoutes);
+app.use('/sicredi/open-finance', openFinanceRoutes);
 
 app.get('/', (req, res) => {
     res.send('Banco 360 API');
 });
 
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });
