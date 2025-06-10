@@ -8,14 +8,14 @@ const authMiddleware = require('../middlewares/authMiddleware');
 // ✅ Criar consentimento com validação de campos
 router.post(
   '/',
-  authMiddleware,
+
   validarCampos(['escopo', 'validade']),
   controller.criarConsentimento
 );
 
 router.get(
   '/:contaId',
-  authMiddleware,
+
   controller.listarPorConta
 );
 

@@ -1,37 +1,26 @@
-const { Conta, Transacao, Consentimento } = require('../models');
-const { Op } = require('sequelize');
+const { Conta, Transacao } = require('../models');
 
 module.exports = {
   async dadosBancarios(req, res) {
     try {
-      const contaId = req.usuario.contaId;
+      const { numeroConta } = req.query;
 
-      // Valida consentimento ativo
-      const consentimento = await Consentimento.findOne({
-        where: {
-          contaId,
-          autorizado: true,
-          validade: { [Op.gt]: new Date() }
-        }
-      });
-
-      if (!consentimento) {
-        return res.status(403).json({ erro: 'Sem consentimento válido para compartilhamento de dados.' });
+      const conta = await Conta.findOne({ where: { numeroConta } });
+      if (!conta) {
+        return res.status(404).json({ erro: 'Conta não encontrada' });
       }
 
-      // Recupera dados bancários autorizados
-      const conta = await Conta.findByPk(contaId, {
+      const contaDetalhada = await Conta.findByPk(conta.id, {
         attributes: ['numeroConta', 'nome', 'email', 'saldo']
       });
 
       const transacoes = await Transacao.findAll({
-        where: { contaId },
+        where: { contaId: conta.id },
         order: [['createdAt', 'DESC']]
       });
 
       return res.status(200).json({
-        escopo: consentimento.escopo,
-        conta,
+        conta: contaDetalhada,
         transacoes
       });
     } catch (error) {

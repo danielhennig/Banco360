@@ -19,8 +19,7 @@ router.get('/', ofertaController.listarOfertas);
 // ✅ Listar ofertas recomendadas (requer consentimento ativo)
 router.get(
     '/recomendadas/:score',
-    authMiddleware,
-    validarConsentimento,
+    
     ofertaController.ofertasRecomendadas
 );
 

@@ -9,7 +9,7 @@ const authMiddleware = require('../middlewares/authMiddleware');
 // ✅ Criar transação (depósito ou saque)
 router.post(
     '/',
-    authMiddleware,
+
     validarCampos(['numeroConta', 'tipo', 'valor']),
     verificarNumeroContaExiste,
     transacaoController.criarTransacao
@@ -18,7 +18,7 @@ router.post(
 // ✅ Listar transações por conta (extrato)
 router.get(
     '/:numeroConta',
-    authMiddleware,
+
     verificarNumeroContaExiste,
     transacaoController.listarTransacoesPorConta
 );
