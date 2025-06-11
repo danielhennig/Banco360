@@ -8,8 +8,8 @@ module.exports = {
     await queryInterface.bulkInsert('Conta', [
       {
         id: uuidv4(),
-        nome: 'João Banrisul',
-        cpf: '44444444444',
+        nome: 'João',
+        cpf: '12345678900',
         email: 'joao@banrisul.com',
         senha: senhaCriptografada,
         numeroConta: '444444',

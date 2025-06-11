@@ -7,7 +7,7 @@ module.exports = {
       { type: Sequelize.QueryTypes.SELECT }
     );
 
-    const joao = contas.find(c => c.cpf === '22222222222');
+    const joao = contas.find(c => c.cpf === '12345678900');
 
 
     if (!joao) {

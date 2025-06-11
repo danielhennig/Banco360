@@ -1,0 +1,2 @@
+//Roda todos os bancos
+npm run start-todos

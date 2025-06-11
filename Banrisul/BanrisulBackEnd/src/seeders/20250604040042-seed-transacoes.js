@@ -7,7 +7,7 @@ module.exports = {
       { type: Sequelize.QueryTypes.SELECT }
     );
 
-    const joao = contas.find(c => c.cpf === '44444444444');
+    const joao = contas.find(c => c.cpf === '12345678900');
 
     if (!joao) {
       throw new Error('Contas não encontradas. Execute a seed das contas primeiro.');
