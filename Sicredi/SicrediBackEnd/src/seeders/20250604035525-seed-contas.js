@@ -9,25 +9,16 @@ module.exports = {
       {
         id: uuidv4(),
         nome: 'João da Silva',
-        cpf: '11111111111',
-        email: 'joao@itau.com',
+        cpf: '22222222222',
+        email: 'joao@sicredi.com',
         senha: senhaCriptografada,
-        numeroConta: '123456',
+        numeroConta: '222222',
         saldo: 1000,
         createdAt: new Date(),
         updatedAt: new Date()
-      },
-      {
-        id: uuidv4(),
-        nome: 'Maria Souza',
-        cpf: '22222222222',
-        email: 'maria@itau.com',
-        senha: senhaCriptografada,
-        numeroConta: '654321',
-        saldo: 2500,
-        createdAt: new Date(),
-        updatedAt: new Date()
       }
+
+
     ]);
   },
 

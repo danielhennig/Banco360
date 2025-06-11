@@ -7,10 +7,10 @@ module.exports = {
       { type: Sequelize.QueryTypes.SELECT }
     );
 
-    const joao = contas.find(c => c.cpf === '11111111111');
-    const maria = contas.find(c => c.cpf === '22222222222');
+    const joao = contas.find(c => c.cpf === '22222222222');
 
-    if (!joao || !maria) {
+
+    if (!joao) {
       throw new Error('Contas não encontradas. Execute a seed das contas primeiro.');
     }
 
@@ -24,12 +24,7 @@ module.exports = {
       { contaId: joao.id, numeroConta: joao.numeroConta, tipo: 'saque', valor: 100 },
       { contaId: joao.id, numeroConta: joao.numeroConta, tipo: 'deposito', valor: 1500 },
 
-      // Maria
-      { contaId: maria.id, numeroConta: maria.numeroConta, tipo: 'deposito', valor: 2000 },
-      { contaId: maria.id, numeroConta: maria.numeroConta, tipo: 'saque', valor: 500 },
-      { contaId: maria.id, numeroConta: maria.numeroConta, tipo: 'deposito', valor: 700 },
-      { contaId: maria.id, numeroConta: maria.numeroConta, tipo: 'saque', valor: 250 },
-      { contaId: maria.id, numeroConta: maria.numeroConta, tipo: 'deposito', valor: 1200 }
+
     ];
 
     await queryInterface.bulkInsert('Transacao',

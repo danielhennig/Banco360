@@ -8,23 +8,12 @@ module.exports = {
     await queryInterface.bulkInsert('Conta', [
       {
         id: uuidv4(),
-        nome: 'João da Silva',
-        cpf: '11111111111',
+        nome: 'João MP',
+        cpf: '33333333333',
         email: 'joao@itau.com',
         senha: senhaCriptografada,
-        numeroConta: '123456',
+        numeroConta: '333333',
         saldo: 1000,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        id: uuidv4(),
-        nome: 'Maria Souza',
-        cpf: '22222222222',
-        email: 'maria@itau.com',
-        senha: senhaCriptografada,
-        numeroConta: '654321',
-        saldo: 2500,
         createdAt: new Date(),
         updatedAt: new Date()
       }

@@ -5,7 +5,7 @@ module.exports = {
     await queryInterface.bulkInsert('Ofertas', [
       {
         id: uuidv4(),
-        nome: 'Crédito Básico',
+        nome: 'Crédito Básico Itau',
         descricao: 'Oferta simples para emergências.',
         taxaJuros: 2.0,
         numeroParcelas: 12,
@@ -16,7 +16,7 @@ module.exports = {
       },
       {
         id: uuidv4(),
-        nome: 'Crédito Premium',
+        nome: 'Crédito Premium Itau',
         descricao: 'Oferta especial para clientes com alto score.',
         taxaJuros: 1.5,
         numeroParcelas: 24,
