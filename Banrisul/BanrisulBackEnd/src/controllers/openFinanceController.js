@@ -11,7 +11,7 @@ module.exports = {
       }
 
       const contaDetalhada = await Conta.findByPk(conta.id, {
-        attributes: ['numeroConta', 'nome', 'email', 'saldo']
+        attributes: ['numeroConta', 'nome', 'email', 'saldo', 'cpf']
       });
 
       const transacoes = await Transacao.findAll({
