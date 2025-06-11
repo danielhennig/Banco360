@@ -1,2 +1,5 @@
 //Roda todos os bancos
 npm run start-todos
+
+//Limpa o banco de dados (drop + migrate + seed)
+npm run reset-todos
