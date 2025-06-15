@@ -10,7 +10,7 @@ module.exports = {
         id: uuidv4(),
         nome: 'João',
         cpf: '12345678900',
-        email: 'joao@sicredi.com',
+        email: 'teste@gmail.com',
         senha: senhaCriptografada,
         numeroConta: '222222',
         saldo: 1000,
